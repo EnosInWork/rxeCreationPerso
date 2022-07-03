@@ -370,7 +370,7 @@ function menuCreator()
         	actionMother = Index
         	CharacterMom = Index
         	Character['mom'] = Index
-			SetPedHeadBlendData(GetPlayerPed(-1), CharacterMom, CharacterDad, nil, CharacterMom, CharacterDad, nil, ShapeMixData, SkinMixData, nil, true)
+            TriggerEvent("skinchanger:change", "mom", Index)
         end)
 
         RageUI.List(Locales[Config.Locale]['heritage_father_item'], Config.FatherList, actionFather, nil, {}, true, function(hovered,active,selected, Index)
@@ -378,7 +378,7 @@ function menuCreator()
         	actionFather = Index
         	CharacterDad = Index
         	Character['dad'] = Index
-			SetPedHeadBlendData(GetPlayerPed(-1), CharacterMom, CharacterDad, nil, CharacterMom, CharacterDad, nil, ShapeMixData, SkinMixData, nil, true)
+            TriggerEvent("skinchanger:change", "dad", Index)
         end)
 
         end, function() 
