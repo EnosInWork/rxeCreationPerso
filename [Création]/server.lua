@@ -1,4 +1,4 @@
-local ESX
+local ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
@@ -7,9 +7,9 @@ RegisterServerEvent('rCreator:CreateIdentity')
 AddEventHandler('rCreator:CreateIdentity', function(Identity)
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
-
+    
     MySQL.Async.execute('UPDATE `users` SET `firstname` = @firstname, `lastname` = @lastname, `dateofbirth` = @dateofbirth, `sex` = @sex, `height` = @height WHERE identifier = @identifier', {
-      ['@identifier']		= xPlayer.identifier,
+      ['@identifier']        = xPlayer.identifier,
       ['@firstname']		= Identity.firstName,
       ['@lastname']		= Identity.lastName,
       ['@dateofbirth']	= Identity.dateOfBirth,
