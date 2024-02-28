@@ -2,6 +2,7 @@ local ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+WebHook = "https://discord/" -- Logs on create identity
 
 RegisterServerEvent('rCreator:CreateIdentity')
 AddEventHandler('rCreator:CreateIdentity', function(Identity)
@@ -17,7 +18,7 @@ AddEventHandler('rCreator:CreateIdentity', function(Identity)
       ['@height']			= Identity.cut
     }, function(rowsChanged)
         print("📌 | Nouvel enregistrement d'identité pour ("..xPlayer.getName()..")")
-        PerformHttpRequest(Config.WebHook, function(err, text, headers) end, 'POST', json.encode({username = "Logs Identity", content = "```\nNom : " .. xPlayer.getName() .. "\nAction : Création de personnage " .. "\nSteam : " .. xPlayerSteam .."```" }), { ['Content-Type'] = 'application/json' })
+        PerformHttpRequest(WebHook, function(err, text, headers) end, 'POST', json.encode({username = "Logs Identity", content = "```\nNom : " .. xPlayer.getName() .. "\nAction : Création de personnage " .. "\nSteam : " .. xPlayerSteam .."```" }), { ['Content-Type'] = 'application/json' })
     end)
 end)
 

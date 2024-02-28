@@ -1,7 +1,5 @@
 Config = {
     ----------------------
-    WebHook = "", -- Logs on create identity
-    ----------------------
     ESXTrigger = "esx:getSharedObject",
     ----------------------
     ColorMenuR = 252, -- Bannière couleur R
